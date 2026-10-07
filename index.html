@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your City | AI helpers for your business</title>
+<meta name="description" content="Your own city of AI helpers. It sorts your Gmail, answers new customers and writes your posts. Nothing sends without your OK. First 5 businesses get set up free.">
+<meta property="og:title" content="Your City | 1,000 AI helpers. One city. All working for you.">
+<meta property="og:description" content="It sorts your Gmail, answers new customers and writes your posts. Nothing sends without your OK. First 5 businesses get set up free.">
+<meta property="og:image" content="https://youraicity.com/poster.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070a14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070a14'/%3E%3Cpath d='M6 26V14h5v12M13 26V7h6v19M21 26V11h5v15' fill='%23f0cf86'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+/* Layout: a night city seen from above. One column on a phone (most visitors come from an Instagram bio), text beside the phone-framed teaser on wide screens.
+   Deliberately one dark theme: the product is a city at night. */
+:root {
+  color-scheme: dark;
+  --night: #070a14;       /* the sky and the streets */
+  --block: #0f1424;       /* a city block: raised surfaces */
+  --line: #222a40;        /* street edges */
+  --ivory: #f6f1e6;       /* text */
+  --dim: #a3a8b8;         /* quiet text */
+  --gold: #f0cf86;        /* City Hall gold: the one accent */
+  --cyan: #57e1ff; --pink: #ff5a9a; --mint: #7dffb0; --violet: #9c8cff; --amber: #ffb35a;   /* department lights, used only as small dots and trails */
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+body { background: var(--night); color: var(--ivory); font: 400 1.0625rem/1.55 var(--body); }
+#trails { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .55; }
+.wrap { position: relative; z-index: 1; max-width: 68rem; margin: 0 auto; padding-inline: max(1rem, 4vw); padding-block: 1.5rem 3rem; }
+a { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .5rem 2rem; }
+.mark { font: 400 1.6rem/1 var(--display); letter-spacing: -.01em; }
+.mark em { color: var(--gold); }
+.pill { font: 600 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); padding: .5rem .75rem; border-radius: 999px; white-space: nowrap; }
+.pill i { display: inline-block; width: .45rem; height: .45rem; border-radius: 50%; background: var(--mint); margin-right: .45rem; box-shadow: 0 0 10px var(--mint); vertical-align: .05em; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+.hero > * { min-width: 0; }
+h1 { font: 400 clamp(2.6rem, 7vw, 4.6rem)/1.02 var(--display); letter-spacing: -.02em; margin: 0 0 1.25rem; text-wrap: balance; }
+h1 em { color: var(--gold); font-style: italic; }
+.lede { font-size: 1.15rem; color: var(--ivory); max-width: 34rem; margin: 0 0 1.75rem; }
+.lede b { color: var(--gold); font-weight: 600; }
+
+.cta { display: grid; gap: .8rem; max-width: 30rem; padding: 1.1rem 1.2rem; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 1.1rem; background: color-mix(in srgb, var(--block) 85%, transparent); box-shadow: 0 0 60px -20px color-mix(in srgb, var(--gold) 55%, transparent); }
+.cta .big { font: 400 1.75rem/1.15 var(--display); }
+.cta .big em { color: var(--gold); }
+.cta .row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.word { font: 600 1.05rem/1 var(--mono); letter-spacing: .2em; color: var(--night); background: var(--gold); border: 0; border-radius: .7rem; padding: .85rem 1.1rem; cursor: pointer; }
+.word:hover, .buy:hover { filter: brightness(1.06); }
+.buy { display: inline-block; font: 700 1.05rem/1 var(--body); color: var(--night); background: var(--gold); border-radius: .7rem; padding: .9rem 1.2rem; text-decoration: none; }
+.code { display: inline-block; font: 700 1.05rem/1 var(--body); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); border-radius: .7rem; padding: .85rem 1.15rem; text-decoration: none; }
+.word.inline { font-size: .85rem; padding: .3rem .5rem; border-radius: .4rem; vertical-align: baseline; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.cta small { color: var(--dim); font-size: .9rem; }
+#copied { color: var(--mint); font: 600 .85rem var(--mono); }
+
+.phone { justify-self: center; width: min(100%, 20rem); aspect-ratio: 9 / 16; max-width: 100%; border-radius: 2rem; padding: .55rem; background: linear-gradient(160deg, #2a2f43, #11141f); box-shadow: 0 30px 80px -30px #000, 0 0 0 1px #2c3248, 0 0 90px -30px color-mix(in srgb, var(--cyan) 50%, transparent); }
+.phone video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 1.55rem; background: var(--block); }
+.phone + p { text-align: center; color: var(--dim); font: 500 .78rem var(--mono); letter-spacing: .08em; margin: .8rem 0 0; }
+
+section { padding-block: clamp(3rem, 8vw, 5.5rem) 0; }
+h2 { font: 400 clamp(2rem, 5vw, 3rem)/1.05 var(--display); letter-spacing: -.015em; margin: 0 0 .6rem; text-wrap: balance; }
+h2 em { color: var(--gold); }
+.sub { color: var(--dim); margin: 0 0 2rem; max-width: 38rem; }
+.label { font: 600 .72rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 .9rem; }
+
+/* how a day goes: a real sequence, so it is numbered */
+.day { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; counter-reset: step; }
+.day li { counter-increment: step; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .9rem; align-items: start; padding: 1rem 0; border-top: 1px solid var(--line); }
+.day li::before { content: counter(step); display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--gold); color: var(--night); font: 600 1rem var(--mono); }
+.day b { display: block; font-size: 1.15rem; font-weight: 600; margin-bottom: .2rem; }
+.day span { color: var(--dim); }
+
+/* the buildings: labels drawn like the signs in the 3D city */
+.city { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .8rem; }
+.bld { padding: 1rem 1.1rem; border-radius: .9rem; background: var(--block); border: 1px solid var(--line); }
+.sign { display: inline-flex; align-items: center; gap: .5rem; font: 600 .8rem/1 var(--mono); letter-spacing: .04em; padding: .45rem .7rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); box-shadow: 0 0 16px -6px var(--c); margin-bottom: .7rem; }
+.sign i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
+.bld p { margin: 0; color: var(--dim); font-size: .98rem; }
+.bld.own { border-style: dashed; border-color: color-mix(in srgb, var(--gold) 45%, transparent); background: transparent; }
+
+/* it gets better: two columns of short facts, plus the two small panels from the app itself */
+.better { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem 2.5rem; }
+.fact { padding: 1rem 0; border-top: 1px solid var(--line); }
+.fact b { display: block; font-size: 1.1rem; font-weight: 600; margin-bottom: .25rem; }
+.fact span { color: var(--dim); }
+.panel { border-radius: 1rem; background: var(--block); border: 1px solid var(--line); padding: 1rem 1.1rem; }
+.panel .k { font: 600 .7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .7rem; }
+.tally { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; font-variant-numeric: tabular-nums; }
+.tally .q { color: var(--dim); font-size: .95rem; }
+.tally .n { font: 600 1rem var(--mono); color: var(--mint); white-space: nowrap; }
+.draft { margin: .6rem 0 .8rem; font-size: .98rem; }
+.draft s { color: var(--dim); }
+.meter { height: .5rem; border-radius: .25rem; background: var(--line); overflow: hidden; margin: .7rem 0; }
+.meter i { display: block; height: 100%; width: 70%; background: var(--gold); }
+.panel .row { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.panel .row span { color: var(--dim); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.btnlike { font: 700 .85rem var(--body); padding: .55rem .8rem; border-radius: .6rem; background: color-mix(in srgb, var(--ivory) 12%, transparent); color: var(--dim); }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.4rem 2rem; }
+.rules div { border-top: 2px solid var(--gold); padding-top: .9rem; }
+.rules b { display: block; font-size: 1.08rem; font-weight: 600; margin-bottom: .3rem; }
+.rules span { color: var(--dim); }
+
+.cost { display: grid; gap: 0; max-width: 40rem; }
+.cost div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; padding: .95rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.cost b { font-weight: 600; }
+.cost span { color: var(--dim); font-size: .95rem; display: block; }
+.cost em { font: 600 .95rem var(--mono); font-style: normal; color: var(--gold); white-space: nowrap; }
+
+.end { text-align: left; }
+.fine { color: var(--dim); font-size: .8rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); max-width: 46rem; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .phone { width: min(100%, 17rem); }
+  .better { grid-template-columns: minmax(0, 1fr); }
+  .top { padding-bottom: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) { #trails { display: none; } }
+</style>
+</head>
+<body>
+<canvas id="trails" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header class="top">
+    <div class="mark">Your <em>City</em></div>
+    <div class="pill"><i></i>First 5 setups free</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>1,000 AI helpers. <em>One city.</em> All working for you.</h1>
+      <p class="lede">Connect your Gmail. Each building is a department: one sorts your email, one answers new customers, one writes your posts. <b>Nothing goes out until you say OK.</b></p>
+      <div class="cta" id="start">
+        <div class="big">First 5 businesses <em>get set up free</em></div>
+        <div class="row">
+          <a class="buy" id="buy" href="https://buy.stripe.com/4gMbIT37z9rS1jI7A9bZe00" target="_blank" rel="noopener">Skip the line: $500</a>
+          <a class="code" href="https://github.com/blake632/your-city" target="_blank" rel="noopener">Free on GitHub</a>
+        </div>
+        <small>I set up your whole city with you on a call. To claim one of the 5 free spots, go back to my Instagram and DM me the word <button class="word inline" id="word" type="button" aria-label="Copy the word CITY">CITY</button> <span id="copied" aria-live="polite"></span></small>
+      </div>
+    </div>
+    <div>
+      <div class="phone"><video src="teaser.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Your City teaser: a 3D city lights up and its departments go to work"></video></div>
+      <p>The 74-second tour</p>
+    </div>
+  </div>
+
+  <section>
+    <p class="label">How a day goes</p>
+    <h2>You live your life. <em>The city does the busywork.</em></h2>
+    <p class="sub">Here is what happens when a new customer emails you at 9 at night.</p>
+    <ol class="day">
+      <li><div><b>The Mail Room reads it in minutes.</b><span>It sorts every email: customers, questions, receipts, newsletters, junk.</span></div></li>
+      <li><div><b>Leads writes the reply in your voice.</b><span>It only uses facts you gave it. Missing one? It asks you instead of guessing.</span></div></li>
+      <li><div><b>An audience tests it first.</b><span>96 simulated customers react. A weak draft gets rewritten before you ever see it.</span></div></li>
+      <li><div><b>You wake up and tap Send.</b><span>Not quite right? Write what to change and it rewrites it. Once it has learned your way, turn on autopilot.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="label">The buildings</p>
+    <h2>Every building <em>does one job.</em></h2>
+    <p class="sub">Start with the ready-made ones, or build your own by saying what you want in plain words.</p>
+    <div class="city">
+      <div class="bld"><div class="sign" style="--c: var(--pink)"><i></i>Mail Room</div><p>Sorts your new email and drafts a reply to each one that needs you.</p></div>
+      <div class="bld"><div class="sign" style="--c: var(--mint)"><i></i>Leads</div><p>Spots new customers in your Gmail and writes your first reply.</p></div>
+      <div class="bld"><div class="sign" style="--c: var(--cyan)"><i></i>Social media</div><p>Writes your posts for the week. It never posts anything by itself.</p></div>
+      <div class="bld"><div class="sign" style="--c: var(--violet)"><i></i>Reviews</div><p>Simple ideas to get more Google reviews this week.</p></div>
+      <div class="bld"><div class="sign" style="--c: var(--amber)"><i></i>Newsletter</div><p>A short email to past customers: a tip, what's new, a friendly sign-off.</p></div>
+      <div class="bld"><div class="sign" style="--c: var(--gold)"><i></i>Ads</div><p>Short ads for the week, each a headline and two lines.</p></div>
+      <div class="bld own"><div class="sign" style="--c: var(--gold)"><i></i>+ Build your own</div><p>Up to 10 buildings. The city even spots what's missing and asks to build it.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">It gets better on its own</p>
+    <h2>A city that <em>improves itself.</em></h2>
+    <p class="sub">The more you use it, the more it works the way you do.</p>
+    <div class="better">
+      <div>
+        <div class="fact"><b>The Research desk searches the internet.</b><span>Every week it looks on GitHub for better tools for your departments and checks each one is real and safe.</span></div>
+        <div class="fact"><b>The School tests them first.</b><span>New skills do practice jobs. Only the ones that pass join a department. Nothing installs itself.</span></div>
+        <div class="fact"><b>The best one teaches the rest.</b><span>Departments get graded every week. The #1 shares its best habit, and every department learns it.</span></div>
+      </div>
+      <div style="display: grid; gap: 1rem; align-content: start">
+        <div class="panel">
+          <div class="k">Email to a new customer · judged by 96 simulated customers</div>
+          <p class="draft"><s>Thanks for your interest. Let us know if you have questions.</s><br>Hi Dana, opening the wall to the dining room is one of our favorite projects. When would you like the work to start?</p>
+          <div class="tally"><span class="q">Would you reply to this?</span><span class="n">74 of 96 said yes</span></div>
+        </div>
+        <div class="panel">
+          <div class="k">Leads · autopilot</div>
+          <div class="row"><b>Learning how you work</b><span class="btnlike">Turn on autopilot</span></div>
+          <div class="meter"><i></i></div>
+          <div class="row"><span>7 of its last 10 approved as written. It unlocks at 8 of 10.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Your rules</p>
+    <h2>You stay <em>in charge.</em></h2>
+    <div class="rules">
+      <div><b>Nothing sends without your OK.</b><span>Unless you turn on autopilot for a department that has earned it. Off any time.</span></div>
+      <div><b>It sticks to your facts.</b><span>It's told to use only what you gave it for prices, dates and promises, and to ask you when a fact is missing.</span></div>
+      <div><b>Any AI you like.</b><span>Claude, ChatGPT, Gemini, or any model on OpenRouter. Switch any time.</span></div>
+      <div><b>It runs on your own account.</b><span>Your city lives on your own Railway, with your own Gmail permission.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">What it costs</p>
+    <h2>Free and open source. <em>Or let me set it up for you.</em></h2>
+    <div class="cost">
+      <div><div><b>Your City</b><span>The app itself. Free and open source. Set it up yourself in one click with <a href="https://railway.com/deploy/your-city?referralCode=6eIidp&amp;utm_medium=integration&amp;utm_source=template&amp;utm_campaign=generic" target="_blank" rel="noopener">Deploy on Railway</a>, or get the code on <a href="https://github.com/blake632/your-city" target="_blank" rel="noopener">GitHub</a>.</span></div><em>Free</em></div>
+      <div><div><b>Done-for-you setup</b><span>I set it up with you on a call: your Gmail, your AI, your first departments. Free for the first 5 businesses.</span></div><em>Then $500 once</em></div>
+      <div><div><b>Your AI</b><span>Pay as you go to the AI you pick. You set a daily limit, starting at $3.</span></div><em>You choose</em></div>
+      <div><div><b>Hosting</b><span>Your own Railway account runs your city.</span></div><em>About $5 a month</em></div>
+    </div>
+  </section>
+
+  <section class="end">
+    <h2>Ready? <em>Let's build your city.</em></h2>
+    <p class="sub">The first 5 businesses get set up free: DM me the word <b>CITY</b> on Instagram. Or grab the code for free and do it yourself.</p>
+    <p class="cta-row"><a class="buy" id="buy2" href="https://buy.stripe.com/4gMbIT37z9rS1jI7A9bZe00" target="_blank" rel="noopener">Skip the line: $500</a> <a class="code" href="https://github.com/blake632/your-city" target="_blank" rel="noopener">Free on GitHub</a></p>
+    <p class="fine">Your City is open source under the AGPL-3.0 license. The video shows a made-up sample business. "1,000 AI helpers" means 10 departments, each with 104 simulated AI judges. The judges and audiences are simulated by AI, not real people.<br><a href="privacy.html">Privacy</a> · <a href="mailto:hello@youraicity.com">hello@youraicity.com</a></p>
+  </section>
+</div>
+
+<script>
+// Copy the word CITY (falls back to selecting it if this view refuses the clipboard)
+(function () {
+  var b = document.getElementById('word'), out = document.getElementById('copied');
+  b.addEventListener('click', function () {
+    var done = function () { out.textContent = 'Copied. Paste it in my DMs.'; };
+    var pick = function () { var r = document.createRange(); r.selectNodeContents(b); var s = getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent = 'Selected. Copy it and paste it in my DMs.'; };
+    try { navigator.clipboard.writeText('CITY').then(done, pick); } catch (e) { pick(); }
+  });
+})();
+
+// Light trails racing along a street grid behind the page: straight lines with right-angle turns, like the city's own.
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cv = document.getElementById('trails'), cx = cv.getContext('2d'), W = 0, H = 0, S = 64, dpr = Math.min(2, window.devicePixelRatio || 1);
+  var cols = ['#57e1ff', '#ff5a9a', '#7dffb0', '#9c8cff', '#ffb35a', '#f0cf86'], bikes = [];
+  function size() { W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function bike() {
+    var x = Math.round(Math.random() * W / S) * S, y = Math.round(Math.random() * H / S) * S, d = [[1, 0], [-1, 0], [0, 1], [0, -1]][Math.floor(Math.random() * 4)];
+    return { pts: [[x, y]], x: x, y: y, d: d, c: cols[Math.floor(Math.random() * cols.length)], run: 0, life: 260 + Math.random() * 380, v: 1.6 + Math.random() * 1.6 };
+  }
+  function step() {
+    cx.clearRect(0, 0, W, H);
+    cx.strokeStyle = 'rgba(80, 96, 140, .10)'; cx.lineWidth = 1; cx.beginPath();
+    for (var gx = 0; gx <= W; gx += S) { cx.moveTo(gx + .5, 0); cx.lineTo(gx + .5, H); }
+    for (var gy = 0; gy <= H; gy += S) { cx.moveTo(0, gy + .5); cx.lineTo(W, gy + .5); }
+    cx.stroke();
+    while (bikes.length < 9) bikes.push(bike());
+    bikes.forEach(function (b) {
+      b.x += b.d[0] * b.v; b.y += b.d[1] * b.v; b.run += b.v;
+      if (b.run % S < b.v && Math.random() < .35) { b.x = Math.round(b.x / S) * S; b.y = Math.round(b.y / S) * S; b.pts.push([b.x, b.y]); b.d = b.d[0] ? [0, Math.random() < .5 ? 1 : -1] : [Math.random() < .5 ? 1 : -1, 0]; }
+      var fade = Math.max(0, Math.min(1, (b.life - b.run) / 80));
+      cx.strokeStyle = b.c; cx.globalAlpha = .75 * fade; cx.lineWidth = 2; cx.shadowColor = b.c; cx.shadowBlur = 12;
+      cx.beginPath(); cx.moveTo(b.pts[0][0], b.pts[0][1]); b.pts.slice(1).forEach(function (p) { cx.lineTo(p[0], p[1]); }); cx.lineTo(b.x, b.y); cx.stroke();
+      cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(b.x, b.y, 2.2, 0, 7); cx.fill();
+      cx.globalAlpha = 1; cx.shadowBlur = 0;
+    });
+    bikes = bikes.filter(function (b) { return b.run < b.life && b.x > -S && b.x < W + S && b.y > -S && b.y < H + S; });
+    requestAnimationFrame(step);
+  }
+  size(); addEventListener('resize', size); requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>
