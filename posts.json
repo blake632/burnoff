@@ -50,6 +50,76 @@
       ],
       "ig": "You don't have to pick one AI.\nUse a fast, cheap one for simple jobs and your smartest one for anything a customer reads.\nWhich AI do you use most? Comment below 👇\n#ai #openrouter #chatgpt #gemini #claudeai",
       "fb": "You don't have to pick one AI.\nUse a fast, cheap one for simple jobs and your smartest one for anything a customer reads.\nWhich AI do you use most? Comment below 👇\n#ai #openrouter #chatgpt #gemini #claudeai"
+    },
+    {
+      "id": "features-1",
+      "kind": "carousel",
+      "files": [
+        "posts/features/1.png",
+        "posts/features/2.png",
+        "posts/features/3.png",
+        "posts/features/4.png",
+        "posts/features/5.png",
+        "posts/features/6.png",
+        "posts/features/7.png",
+        "posts/features/8.png"
+      ],
+      "ig": "6 things my AI city does for a business 🏙️\nSorts your Gmail. Tests every draft first. Learns how you work. Builds what's missing. Gets smarter every week. Runs on any AI.\nNothing sends without your OK.\nFirst 5 businesses get set up free. DM me CITY 👇\n#ai #aitools #smallbusiness #automation",
+      "fb": "6 things my AI city does for a business 🏙️\nSorts your Gmail. Tests every draft first. Learns how you work. Builds what's missing. Gets smarter every week. Runs on any AI.\nNothing sends without your OK.\nFirst 5 businesses get set up free. DM me CITY 👇\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-1-gmail",
+      "kind": "reel",
+      "files": [
+        "posts/reel-1-gmail/reel.mp4"
+      ],
+      "ig": "I connected my Gmail. Then the whole city went to work. 📨\nEvery email gets sorted: customers, questions, receipts, junk. Replies come drafted, waiting for my OK.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "I connected my Gmail. Then the whole city went to work. 📨\nEvery email gets sorted: customers, questions, receipts, junk. Replies come drafted, waiting for my OK.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-2-tested",
+      "kind": "reel",
+      "files": [
+        "posts/reel-2-tested/reel.mp4"
+      ],
+      "ig": "Before I see a single draft, an audience tests it. 🧪\n96 simulated people (AI, not real ones) react to every email and post. Weak drafts get rewritten. Only the best reaches me.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "Before I see a single draft, an audience tests it. 🧪\n96 simulated people (AI, not real ones) react to every email and post. Weak drafts get rewritten. Only the best reaches me.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-3-autopilot",
+      "kind": "reel",
+      "files": [
+        "posts/reel-3-autopilot/reel.mp4"
+      ],
+      "ig": "Teach it, then let it run. ✈️\nI approve or say what to change. Once a department gets 8 of its last 10 right, one tap turns on autopilot. Off any time.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "Teach it, then let it run. ✈️\nI approve or say what to change. Once a department gets 8 of its last 10 right, one tap turns on autopilot. Off any time.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-4-self-building",
+      "kind": "reel",
+      "files": [
+        "posts/reel-4-self-building/reel.mp4"
+      ],
+      "ig": "It sees what's missing, then builds it. 🏗️\nA new department goes up, researches the best tools on GitHub, and trains in the city's school before it starts work.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "It sees what's missing, then builds it. 🏗️\nA new department goes up, researches the best tools on GitHub, and trains in the city's school before it starts work.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-5-economy",
+      "kind": "reel",
+      "files": [
+        "posts/reel-5-economy/reel.mp4"
+      ],
+      "ig": "My AI agents compete for yachts. 🛥️ (Kidding. Mostly.)\nEvery department gets graded each week. The #1 shares its best habit and the whole city learns it.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "My AI agents compete for yachts. 🛥️ (Kidding. Mostly.)\nEvery department gets graded each week. The #1 shares its best habit and the whole city learns it.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
+    },
+    {
+      "id": "reel-6-any-ai",
+      "kind": "reel",
+      "files": [
+        "posts/reel-6-any-ai/reel.mp4"
+      ],
+      "ig": "Claude, ChatGPT, Gemini or any model. Your pick. 🧠\nSwitch the brain any time. It runs on your own accounts, and nothing sends without your OK.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation",
+      "fb": "Claude, ChatGPT, Gemini or any model. Your pick. 🧠\nSwitch the brain any time. It runs on your own accounts, and nothing sends without your OK.\nFirst 5 businesses get set up free. DM me CITY\n#ai #aitools #smallbusiness #automation"
     }
   ]
 }
