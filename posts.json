@@ -1,3 +1,55 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "intro-reel",
+      "kind": "reel",
+      "files": [
+        "posts/intro-reel/reel.mp4"
+      ],
+      "ig": "The fog is burning off. Businesses that use AI pull ahead. The rest get left behind. 🌅\nI built a city of AI helpers that sorts my email, answers new customers and writes my posts.\nNothing sends without my OK.\nOn this page: AI tips, which AI is good at what, and how I built it.\nFollow and burn off the busywork 🔥\n#ai #aitools #smallbusiness #buildinpublic",
+      "fb": "The fog is burning off. Businesses that use AI pull ahead. The rest get left behind. 🌅\nI built a city of AI helpers that sorts my email, answers new customers and writes my posts.\nNothing sends without my OK.\nOn this page: AI tips, which AI is good at what, and how I built it.\nFollow and burn off the busywork 🔥\n#ai #aitools #smallbusiness #buildinpublic"
+    },
+    {
+      "id": "build-log-1",
+      "kind": "carousel",
+      "files": [
+        "posts/build-log-1/1.png",
+        "posts/build-log-1/2.png",
+        "posts/build-log-1/3.png",
+        "posts/build-log-1/4.png",
+        "posts/build-log-1/5.png",
+        "posts/build-log-1/6.png"
+      ],
+      "ig": "How I built a city of AI helpers (build log #1)\nEvery building is a department. Every draft gets tested on a simulated audience first. Nothing sends without my OK.\nIt's free and open source. Want one set up for your business? The first 5 are free. DM me CITY.\n#buildinpublic #ai #automation #opensource",
+      "fb": "How I built a city of AI helpers (build log #1)\nEvery building is a department. Every draft gets tested on a simulated audience first. Nothing sends without my OK.\nIt's free and open source. Want one set up for your business? The first 5 are free. DM me CITY.\n#buildinpublic #ai #automation #opensource"
+    },
+    {
+      "id": "ai-tips-1",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-tips-1/1.png",
+        "posts/ai-tips-1/2.png",
+        "posts/ai-tips-1/3.png",
+        "posts/ai-tips-1/4.png",
+        "posts/ai-tips-1/5.png",
+        "posts/ai-tips-1/6.png",
+        "posts/ai-tips-1/7.png"
+      ],
+      "ig": "Your AI isn't dumb. Your prompt is just too short.\n5 fixes that work on ChatGPT, Claude and Gemini. Save this for your next prompt 📌\nWhich one are you trying first?\n#chatgpt #claudeai #aitips #prompting",
+      "fb": "Your AI isn't dumb. Your prompt is just too short.\n5 fixes that work on ChatGPT, Claude and Gemini. Save this for your next prompt 📌\nWhich one are you trying first?\n#chatgpt #claudeai #aitips #prompting"
+    },
+    {
+      "id": "ai-models-1",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-models-1/1.png",
+        "posts/ai-models-1/2.png",
+        "posts/ai-models-1/3.png",
+        "posts/ai-models-1/4.png",
+        "posts/ai-models-1/5.png"
+      ],
+      "ig": "You don't have to pick one AI.\nUse a fast, cheap one for simple jobs and your smartest one for anything a customer reads.\nWhich AI do you use most? Comment below 👇\n#ai #openrouter #chatgpt #gemini #claudeai",
+      "fb": "You don't have to pick one AI.\nUse a fast, cheap one for simple jobs and your smartest one for anything a customer reads.\nWhich AI do you use most? Comment below 👇\n#ai #openrouter #chatgpt #gemini #claudeai"
+    }
+  ]
 }
