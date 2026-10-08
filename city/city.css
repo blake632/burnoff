@@ -1,0 +1,75 @@
+/* A "your city" page: one business's plan, drawn as a small night city. Same look as the home page (index.html).
+   The page's words about the business come from city/<slug>/index.html (the #plan JSON); city.js draws it. */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+:root {
+  color-scheme: dark;
+  --night: #070a14; --block: #0f1424; --line: #222a40; --ivory: #f6f1e6; --dim: #a3a8b8; --gold: #f0cf86;
+  --cyan: #57e1ff; --pink: #ff5a9a; --mint: #7dffb0; --violet: #9c8cff; --amber: #ffb35a;
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+body { background: var(--night); color: var(--ivory); font: 400 1.0625rem/1.55 var(--body); }
+#trails { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .45; }
+.wrap { position: relative; z-index: 1; max-width: 60rem; margin: 0 auto; padding-inline: max(1rem, 4vw); padding-block: 1.5rem 3rem; }
+a { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .5rem 2rem; }
+.mark { font: 400 1.6rem/1 var(--display); letter-spacing: -.01em; color: var(--ivory); text-decoration: none; }
+.mark em { color: var(--gold); }
+.pill { font: 600 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); padding: .5rem .75rem; border-radius: 999px; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pill i { display: inline-block; width: .45rem; height: .45rem; border-radius: 50%; background: var(--mint); margin-right: .45rem; box-shadow: 0 0 10px var(--mint); vertical-align: .05em; }
+
+.label { font: 600 .72rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 .9rem; }
+h1 { font: 400 clamp(2.5rem, 7vw, 4.2rem)/1.02 var(--display); letter-spacing: -.02em; margin: 0 0 1.1rem; text-wrap: balance; overflow-wrap: anywhere; }
+h1 em, h2 em { color: var(--gold); font-style: italic; }
+h2 { font: 400 clamp(1.9rem, 5vw, 2.7rem)/1.06 var(--display); letter-spacing: -.015em; margin: 0 0 .6rem; text-wrap: balance; }
+.lede { font-size: 1.15rem; max-width: 36rem; margin: 0 0 1.5rem; }
+.lede b { color: var(--gold); font-weight: 600; }
+.sub { color: var(--dim); margin: 0 0 1.6rem; max-width: 38rem; }
+section { padding-block: clamp(2.5rem, 7vw, 4.5rem) 0; }
+
+/* the skyline: one building per department, lit in its own color */
+.sky { margin: .5rem 0 0; border-radius: 1.2rem; border: 1px solid var(--line); background: radial-gradient(120% 90% at 50% 100%, #131a33 0%, var(--night) 70%); padding: 1rem .6rem 0; overflow: hidden; }
+.sky svg { display: block; width: 100%; height: auto; }
+.sky .win { animation: flick 6s infinite steps(1); }
+@keyframes flick { 0%, 100% { opacity: 1; } 47% { opacity: .25; } 53% { opacity: 1; } }
+.sky .beam { animation: rise 3.2s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: bottom; }
+@keyframes rise { from { opacity: .35; } to { opacity: .9; } }
+
+/* the departments */
+.depts { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: .8rem; }
+.bld { padding: 1rem 1.1rem 1.1rem; border-radius: .9rem; background: var(--block); border: 1px solid var(--line); }
+.sign { display: inline-flex; align-items: center; gap: .5rem; font: 600 .8rem/1 var(--mono); letter-spacing: .04em; padding: .45rem .7rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); box-shadow: 0 0 16px -6px var(--c); margin-bottom: .75rem; }
+.sign i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
+.bld b { display: block; font-weight: 600; font-size: 1.05rem; margin-bottom: .35rem; }
+.bld p { margin: 0; color: var(--dim); font-size: .97rem; }
+.bld p + p { margin-top: .55rem; }
+.bld p em { font-style: normal; color: var(--ivory); }
+.bld.own { border-style: dashed; border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+
+/* what we read on their site */
+.read { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 42rem; }
+.read li { padding: .85rem 0; border-top: 1px solid var(--line); }
+.read li span { display: block; color: var(--dim); font-size: .9rem; margin-top: .2rem; }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1.2rem 2rem; }
+.rules div { border-top: 2px solid var(--gold); padding-top: .9rem; }
+.rules b { display: block; font-weight: 600; margin-bottom: .3rem; }
+.rules span { color: var(--dim); }
+
+.cta { display: grid; gap: .9rem; max-width: 34rem; padding: 1.2rem 1.25rem; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 1.1rem; background: color-mix(in srgb, var(--block) 85%, transparent); box-shadow: 0 0 60px -20px color-mix(in srgb, var(--gold) 55%, transparent); }
+.cta .big { font: 400 1.75rem/1.15 var(--display); }
+.cta .big em { color: var(--gold); }
+.cta .row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.cta small { color: var(--dim); font-size: .9rem; }
+.buy { display: inline-block; font: 700 1.05rem/1 var(--body); color: var(--night); background: var(--gold); border-radius: .7rem; padding: .9rem 1.2rem; text-decoration: none; }
+.code { display: inline-block; font: 700 1.05rem/1 var(--body); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); border-radius: .7rem; padding: .85rem 1.15rem; text-decoration: none; }
+.buy:hover { filter: brightness(1.06); }
+
+.fine { color: var(--dim); font-size: .8rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); max-width: 46rem; }
+
+@media (max-width: 760px) { .top { padding-bottom: 1.25rem; } }
+@media (prefers-reduced-motion: reduce) { #trails { display: none; } .sky .win, .sky .beam { animation: none; } }
