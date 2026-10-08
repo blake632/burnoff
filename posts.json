@@ -163,6 +163,34 @@
         "title": "Daily Hustle",
         "artist": "Ecklectic Music"
       }
+    },
+    {
+      "id": "ai-news-2026-10-08",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-news-2026-10-08/1.jpg",
+        "posts/ai-news-2026-10-08/2.jpg",
+        "posts/ai-news-2026-10-08/3.jpg",
+        "posts/ai-news-2026-10-08/4.jpg",
+        "posts/ai-news-2026-10-08/5.jpg"
+      ],
+      "ig": "GPT-6 is here, and Claude just got cheaper\nAI news for October 8:\n1. Claude Haiku 5.5 cuts token prices up to 90%\n2. Copilot gets access to your files and Windows\n3. Surface Laptop Ultra starts at $2,599\n\nSources: The Decoder, The Verge.\nWhich one matters most to you? 👇\nFollow for AI news every morning.\n#ai #ainews #artificialintelligence #tech #smallbusiness",
+      "fb": "GPT-6 is here, and Claude just got cheaper\nAI news for October 8:\n1. Claude Haiku 5.5 cuts token prices up to 90%\n2. Copilot gets access to your files and Windows\n3. Surface Laptop Ultra starts at $2,599\n\nSources: The Decoder, The Verge.\nWhich one matters most to you? 👇\nFollow for AI news every morning.\n#ai #ainews #artificialintelligence #tech #smallbusiness"
+    },
+    {
+      "id": "ai-test-2026-10-08",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-test-2026-10-08/1.jpg",
+        "posts/ai-test-2026-10-08/2.jpg",
+        "posts/ai-test-2026-10-08/3.jpg",
+        "posts/ai-test-2026-10-08/4.jpg",
+        "posts/ai-test-2026-10-08/5.jpg",
+        "posts/ai-test-2026-10-08/6.jpg",
+        "posts/ai-test-2026-10-08/7.jpg"
+      ],
+      "ig": "Same job, 4 AIs: turn messy notes into a to-do list.\n🥇 Gemini 3.8 Flash: 8.5/10, 1.8s, $0.35 per 1,000\n🥈 DeepSeek V4.1 Flash: 8.5/10, 4.3s, $0.82 per 1,000\n🥉 GPT 5.5: 8.0/10, 1.7s, $2.17 per 1,000\n· Claude Sonnet 5.5: 6.5/10, 2.0s, $2.00 per 1,000\n\nScored blind by Claude Opus 5.5 and GPT 5.5. Times and costs measured.\nWhich AI do you use? 👇\n#ai #chatgpt #claude #gemini #aitools",
+      "fb": "Same job, 4 AIs: turn messy notes into a to-do list.\n🥇 Gemini 3.8 Flash: 8.5/10, 1.8s, $0.35 per 1,000\n🥈 DeepSeek V4.1 Flash: 8.5/10, 4.3s, $0.82 per 1,000\n🥉 GPT 5.5: 8.0/10, 1.7s, $2.17 per 1,000\n· Claude Sonnet 5.5: 6.5/10, 2.0s, $2.00 per 1,000\n\nScored blind by Claude Opus 5.5 and GPT 5.5. Times and costs measured.\nWhich AI do you use? 👇\n#ai #chatgpt #claude #gemini #aitools"
     }
   ]
 }
