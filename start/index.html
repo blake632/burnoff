@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Start | Burnoff</title>
-<meta name="description" content="Your AI office, running in 3 minutes. $50 a month, cancel any time. Nothing goes out until you say OK.">
+<meta name="description" content="Your AI office, running in 3 minutes. Three plans from $50 a month, cancel any time. Nothing goes out until you say OK.">
 <meta property="og:title" content="Start your Burnoff city">
-<meta property="og:description" content="Your AI office, running in 3 minutes. $50 a month.">
+<meta property="og:description" content="Your AI office, running in 3 minutes. Plans from $50 a month.">
 <meta property="og:image" content="https://burnoff.app/poster.jpg">
 <meta name="theme-color" content="#070a14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,18 @@ h1 { font: 400 clamp(2.4rem, 8vw, 3.6rem)/1.04 var(--display); letter-spacing: -
 .lede { font-size: 1.15rem; margin: 0; } .lede b { color: var(--gold); font-weight: 600; }
 .price { font: 400 1.6rem/1.2 var(--display); margin: 0 0 .9rem; } .price em { color: var(--gold); }
 .choices { display: grid; gap: .8rem; }
+.plans { display: grid; gap: 1rem; }
+.plan { border: 1px solid var(--line); border-radius: 1.1rem; padding: 1.2rem 1.1rem; background: var(--block); display: grid; gap: .8rem; }
+.plan.best { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 18px 40px -24px color-mix(in srgb, var(--gold) 60%, transparent); }
+.plan h3 { margin: 0; font: 600 .78rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.plan .cost { font: 400 2.4rem/1 var(--display); margin: 0; } .plan .cost small { font: 400 1rem var(--body); color: var(--dim); }
+.plan .for { margin: 0; color: var(--dim); font-size: .95rem; }
+.plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .45rem; }
+.plan li { display: grid; grid-template-columns: 1.2rem 1fr; gap: .5rem; } .plan li::before { content: "✓"; color: var(--mint); font-weight: 700; }
+.plan li.plus { font-weight: 600; } .plan li.plus::before { content: "+"; color: var(--gold); }
+.plan .tag { justify-self: start; font: 600 .7rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; background: var(--gold); color: var(--night); border-radius: 99px; padding: .35rem .6rem; }
+.plan .alt { font-size: .9rem; color: var(--dim); text-align: center; margin: 0; } .plan .alt a { color: var(--gold); }
+@media (min-width: 60rem) { .wrap.wide { max-width: 68rem; } .plans { grid-template-columns: repeat(3, 1fr); align-items: start; } }
 .or { color: var(--dim); margin: 1.4rem 0 .6rem; font-size: .95rem; }
 .choice { display: block; text-decoration: none; color: var(--ivory); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); border-radius: 1rem; padding: 1rem 1.1rem; background: var(--block); }
 .choice.main { background: var(--gold); color: var(--night); border-color: var(--gold); }
@@ -42,29 +54,69 @@ ol li small { display: block; color: var(--dim); font-size: .9rem; }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap wide">
   <header><a class="mark" href="/">Burn<em>off</em></a></header>
 
   <section>
     <p class="label">Start here</p>
     <h1>Your AI office, <em>running in 3 minutes.</em></h1>
-    <p class="lede">It answers new customers, sorts your email and writes your posts. <b>Nothing goes out until you say OK.</b></p>
+    <p class="lede">Pick a plan. Start with your inbox, add your marketing, or put it all on autopilot. <b>On Starter and Pro, nothing goes out until you say OK.</b></p>
   </section>
 
   <section>
-    <p class="price">$50 a month. <em>Set it up yourself in 3 minutes.</em> Cancel any time.</p>
-    <div class="choices">
-      <a class="choice main" href="https://signup-production-1b3e.up.railway.app/start?ai=ours"><b>Start with our AI</b><span>Nothing else to set up. AI use is added to your bill at cost plus 20%, never more than $100 a month.</span></a>
-      <a class="choice" href="https://signup-production-1b3e.up.railway.app/start?ai=own"><b>Use my own AI</b><span>Connect OpenRouter, Claude, ChatGPT or Gemini in one tap, and pay it directly.</span></a>
+    <div class="plans">
+      <article class="plan">
+        <h3>Starter</h3>
+        <p class="cost">$50 <small>a month</small></p>
+        <p class="for">Getting started: your inbox, handled.</p>
+        <ul>
+          <li>Sorts every new email and files it under a label</li>
+          <li>Drafts a reply to each email that needs you</li>
+          <li>Spots new customers and writes your first reply, in your voice</li>
+          <li>A link for your website form, so leads come straight in</li>
+          <li>Set it up yourself in 3 minutes</li>
+        </ul>
+        <a class="choice main" href="https://signup-production-1b3e.up.railway.app/start?plan=starter&amp;ai=ours"><b>Start Starter</b><span>Our AI included, billed at cost plus 20%, never more than $100 a month.</span></a>
+        <p class="alt">Have your own AI? <a href="https://signup-production-1b3e.up.railway.app/start?plan=starter&amp;ai=own">Start with my own AI</a></p>
+      </article>
+      <article class="plan best">
+        <span class="tag">Most features for the price</span>
+        <h3>Pro</h3>
+        <p class="cost">$500 <small>a month</small></p>
+        <p class="for">Your whole marketing office.</p>
+        <ul>
+          <li class="plus">Everything in Starter, plus:</li>
+          <li>Social media: your posts for the week, written for you</li>
+          <li>Reviews: new ways to get more Google reviews every week</li>
+          <li>Newsletter: a short email to your past customers</li>
+          <li>Ads: fresh Facebook and Google ads every week</li>
+          <li>Up to 10 departments: describe a new one in plain words and it is built</li>
+          <li>Posts, ads and replies tested on an AI audience before you see them</li>
+          <li>We set it up with you, step by step</li>
+        </ul>
+        <a class="choice main" href="https://signup-production-1b3e.up.railway.app/start?plan=pro&amp;ai=ours"><b>Start Pro</b><span>Our AI included, billed at cost plus 20%, never more than $100 a month.</span></a>
+      </article>
+      <article class="plan">
+        <h3>Ultimate</h3>
+        <p class="cost">$5,000 <small>a month</small></p>
+        <p class="for">Fully automated.</p>
+        <ul>
+          <li class="plus">Everything in Pro, plus:</li>
+          <li>Autopilot: once a department gets 8 of its last 10 approved as written, it sends its own work, up to 20 a day</li>
+          <li>Questions and anything that looks weak still come to you</li>
+          <li>Turn autopilot off for any department, any time</li>
+          <li>We build every department for you</li>
+          <li>Your questions answered first, by a person</li>
+        </ul>
+        <a class="choice main" href="https://signup-production-1b3e.up.railway.app/start?plan=ultimate&amp;ai=ours"><b>Start Ultimate</b><span>Our AI included, billed at cost plus 20%, never more than $100 a month.</span></a>
+      </article>
     </div>
-    <p class="or">Rather not do it yourself?</p>
-    <a class="choice" href="https://buy.stripe.com/4gMbIT37z9rS1jI7A9bZe00"><b>Done with you: $500 once</b><span>We set it up with you on a call: your email, your departments and your first replies. After you pay, we email you within a day to book it. Then $50 a month keeps it running.</span></a>
   </section>
 
   <section>
     <h2>What happens next</h2>
     <ol>
-      <li><div>Pay on the next page.<small>A secure Stripe checkout.</small></div></li>
+      <li><div>Pick a plan and pay on the next page.<small>A secure Stripe checkout. Cancel any time.</small></div></li>
       <li><div>Your city builds itself.<small>About 3 minutes. Keep the page open.</small></div></li>
       <li><div>Open it and choose your password.<small>On your phone, add it to your Home Screen.</small></div></li>
       <li><div>Type your website.<small>Your city fills in your business details by itself.</small></div></li>
@@ -74,7 +126,7 @@ ol li small { display: block; color: var(--dim); font-size: .9rem; }
   </section>
 
   <p class="help">Stuck anywhere? <b>Email hello@burnoff.app</b> and a person answers.</p>
-  <p class="fine">AI writes drafts; you approve everything before it goes out. The work is judged by AI audiences, not real people. <a href="/privacy.html">Privacy</a></p>
+  <p class="fine">AI writes drafts; you approve everything before it goes out, unless you turn on autopilot (Ultimate). The work is judged by AI audiences, not real people. <a href="/privacy.html">Privacy</a></p>
 </div>
 </body>
 </html>
