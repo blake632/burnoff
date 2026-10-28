@@ -447,6 +447,34 @@
       ],
       "ig": "Same job, 4 AIs: explain a late fee politely.\n🥇 GPT-6.1 Sol: 8.5/10, 3.5s, $0.56 per 1,000\n🥈 Gemini 3.8 Flash: 8.0/10, 2.2s, $0.25 per 1,000\n🥉 Claude Sonnet 5.5: 8.0/10, 1.7s, $1.14 per 1,000\n· DeepSeek V4.1 Flash: 7.5/10, 2.4s, $0.07 per 1,000\n\nScored blind by Claude Opus 5.5 and GPT-6.1 Sol. Times and costs measured.\nWhich AI do you use? 👇\n#ai #chatgpt #claude #gemini #aitools",
       "fb": "Same job, 4 AIs: explain a late fee politely.\n🥇 GPT-6.1 Sol: 8.5/10, 3.5s, $0.56 per 1,000\n🥈 Gemini 3.8 Flash: 8.0/10, 2.2s, $0.25 per 1,000\n🥉 Claude Sonnet 5.5: 8.0/10, 1.7s, $1.14 per 1,000\n· DeepSeek V4.1 Flash: 7.5/10, 2.4s, $0.07 per 1,000\n\nScored blind by Claude Opus 5.5 and GPT-6.1 Sol. Times and costs measured.\nWhich AI do you use? 👇\n#ai #chatgpt #claude #gemini #aitools"
+    },
+    {
+      "id": "ai-news-2026-10-28",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-news-2026-10-28/1.jpg",
+        "posts/ai-news-2026-10-28/2.jpg",
+        "posts/ai-news-2026-10-28/3.jpg",
+        "posts/ai-news-2026-10-28/4.jpg",
+        "posts/ai-news-2026-10-28/5.jpg"
+      ],
+      "ig": "Your bank says: don't give AI your password\nAI news for October 28:\n1. Bank of America warns on sharing passwords with AI\n2. OpenAI and Oracle bring business apps to ChatGPT\n3. Opera introduces WebAI standard for local AI\n\nSources: TechCrunch, OpenAI.\nWhich one matters most to you? 👇\nFollow for AI news every morning.\n#ai #ainews #artificialintelligence #tech #smallbusiness",
+      "fb": "Your bank says: don't give AI your password\nAI news for October 28:\n1. Bank of America warns on sharing passwords with AI\n2. OpenAI and Oracle bring business apps to ChatGPT\n3. Opera introduces WebAI standard for local AI\n\nSources: TechCrunch, OpenAI.\nWhich one matters most to you? 👇\nFollow for AI news every morning.\n#ai #ainews #artificialintelligence #tech #smallbusiness"
+    },
+    {
+      "id": "ai-tip-2026-10-28",
+      "kind": "carousel",
+      "files": [
+        "posts/ai-tip-2026-10-28/1.jpg",
+        "posts/ai-tip-2026-10-28/2.jpg",
+        "posts/ai-tip-2026-10-28/3.jpg",
+        "posts/ai-tip-2026-10-28/4.jpg",
+        "posts/ai-tip-2026-10-28/5.jpg",
+        "posts/ai-tip-2026-10-28/6.jpg",
+        "posts/ai-tip-2026-10-28/7.jpg"
+      ],
+      "ig": "Not every task needs the strongest AI model. Match the model to the job and you save time and effort. Save this post, then try your next task on a different model and compare.\nSave this for later 📌\nFollow for AI tips 3 times a week.\n#ai #aitips #chatgpt #claude #productivity",
+      "fb": "Not every task needs the strongest AI model. Match the model to the job and you save time and effort. Save this post, then try your next task on a different model and compare.\nSave this for later 📌\nFollow for AI tips 3 times a week.\n#ai #aitips #chatgpt #claude #productivity"
     }
   ]
 }
